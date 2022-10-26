@@ -8,10 +8,18 @@ app.use(bodyParser.urlencoded({ extended: false }))
 server.use(middlewares)
 
 maison = new Map();
+locataire = new Map();
 
 server.get('/echo', (req, res) => {
   res.jsonp(req.query)
   console.log('test');
+})
+
+server.delete('/delete-locataire',(req,res) =>{
+  console.log('test');
+  if(locataire.has(req.body.id)){
+    locataire.delete(req.body.id);
+  }
 })
 
 server.delete('/suppression',(req,res) =>{
