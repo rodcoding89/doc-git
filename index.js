@@ -13,6 +13,14 @@ server.get('/echo', (req, res) => {
   res.jsonp(req.query)
   console.log('test');
 })
+
+server.delete('/suppression',(req,res) =>{
+  console.log('test');
+  if(maison.has(req.body.id)){
+    maison.delete(req.body.id);
+  }
+})
+
 server.put('/modification',(req,res) =>{
   console.log('test');
   if(maison.has(req.body.id)){
