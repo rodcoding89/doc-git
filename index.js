@@ -35,6 +35,16 @@ server.put('/update-locataire',(req,res) =>{
   }
 })
 
+server.post('/add-locataire',(req,res) =>{
+  obj = {
+    nom : req.body.nom,
+    prenom : req.body.prenom,
+    profession : req.body.profession,
+    revenu : req.body.revenu
+  }
+  locataire.set(req.body.id,obj);
+})
+
 server.delete('/suppression',(req,res) =>{
   console.log('test');
   if(maison.has(req.body.id)){
