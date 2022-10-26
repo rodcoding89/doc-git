@@ -13,8 +13,16 @@ server.get('/echo', (req, res) => {
   res.jsonp(req.query)
   console.log('test');
 })
-server.post('/modification',(req,res) =>{
+server.put('/modification',(req,res) =>{
   console.log('test');
+  if(maison.has(req.body.id)){
+    obj = {
+      adresse : req.body.adresse,
+      prix : req.body.prix,
+      locataire : req.body.locataire
+    }
+    maison.set(req.body.locataire,obj);
+  }
 })
 
 server.post('/add',(req,res) =>{
