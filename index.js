@@ -15,6 +15,11 @@ server.get('/echo', (req, res) => {
   console.log('test');
 })
 
+/**
+ * @api {delete} /delete-locataire
+ * @apiName DeleteLocataire
+ * @apiGroup delete
+ */
 server.delete('/delete-locataire',(req,res) =>{
   console.log('test');
   if(locataire.has(req.body.id)){
@@ -22,6 +27,13 @@ server.delete('/delete-locataire',(req,res) =>{
   }
 })
 
+/**
+ * @api {put} /update-locataire
+ * @apiName UpdateLocataire
+ * @apiGroup update
+ * @apiSuccess {String} nom du locataire.
+ * @apiSuccess {String} prénom du locataire
+ */
 server.put('/update-locataire',(req,res) =>{
   console.log('test');
   if(locataire.has(req.body.id)){
@@ -35,6 +47,13 @@ server.put('/update-locataire',(req,res) =>{
   }
 })
 
+/**
+ * @api {post} /add-locataire
+ * @apiName AddLocataire
+ * @apiGroup add
+ * @apiSuccess {String} nom du locataire.
+ * @apiSuccess {String} prénom du locataire
+ */
 server.post('/add-locataire',(req,res) =>{
   obj = {
     nom : req.body.nom,
@@ -45,6 +64,11 @@ server.post('/add-locataire',(req,res) =>{
   locataire.set(req.body.id,obj);
 })
 
+/**
+ * @api {delete} /suppression
+ * @apiName DeleteMaison
+ * @apiGroup delete
+ */
 server.delete('/suppression',(req,res) =>{
   console.log('test');
   if(maison.has(req.body.id)){
@@ -52,6 +76,13 @@ server.delete('/suppression',(req,res) =>{
   }
 })
 
+/**
+ * @api {put} /modification
+ * @apiName UpdateMaison
+ * @apiGroup update
+ * @apiSuccess {String} adresse de la maison.
+ * @apiSuccess {double} prix de la maison
+ */
 server.put('/modification',(req,res) =>{
   console.log('test');
   if(maison.has(req.body.id)){
@@ -64,6 +95,13 @@ server.put('/modification',(req,res) =>{
   }
 })
 
+/**
+ * @api {post} /add
+ * @apiName AddMaison
+ * @apiGroup add
+ * @apiSuccess {String} adresse de la maison.
+ * @apiSuccess {double} prix de la maison
+ */
 server.post('/add',(req,res) =>{
   obj = {
     adresse : req.body.adresse,
